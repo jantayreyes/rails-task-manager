@@ -1,0 +1,14 @@
+<div class="container">
+<h1>My tasks</h1>
+  <ul>
+    <% @tasks.each do |task| %>
+      <li class="d-flex"><%= form_for(task) do |f|%>
+        <%= f.check_box :completed %><%end%>
+        <%= link_to task.title, task_path(task) %>
+        <a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/tasks/<%= task.id%>">🗑️</a>
+     </li>
+    <% end %>
+  </ul>
+   <a href="/tasks/new" class="btn btn-dark">Add a task</a>
+</div>
+   
